@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Book
+from apis.models import Book
 # Create your tests here.
 class BookTests(TestCase):
     @classmethod
@@ -24,3 +24,5 @@ class BookTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "excellent subtitle")
         self.assertTemplateUsed(response, "books/book_list.html")
+
+        print(response.content)
